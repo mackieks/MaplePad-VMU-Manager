@@ -1,9 +1,14 @@
-# MaplePad VMU Manager
+# 🍁 MaplePad VMU Manager
 
-A Windows desktop app for creating and editing Dreamcast VMU images, built with Rust and egui. Inspired by @pomegd
+A beautiful Windows app for creating and editing Dreamcast VMU images, with native [MaplePad](https://github.com/mackieks/MaplePad) support, built with Rust and egui. 
 
+Special thanks to [@pomegd](https://github.com/pomegd/vmu_manager) for the inspiration!
 
+<img style="border-width:0" src="images/darkmode.png" width="500"> <img style="border-width:0" src="images/lightmode.png" width="500">
 
+VMU Root Block Editor enables deep VMU customization, custom icon creation, Real Mode, and displays Dreamcast-accurate previews.
+
+<img style="border-width:0" src="images/editor.png" width="300"> <img style="border-width:0" src="images/editor2.png" width="300">
 
 ## Build
 
