@@ -1,0 +1,32 @@
+name: Windows
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check formatting
+        run: cargo fmt --check
+      - name: Test
+        run: cargo test --release --locked
+      - name: Build
+        run: cargo build --release --locked
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path dist
+          Copy-Item target/release/maplepad-vmu-manager.exe 'dist/MaplePad VMU Manager.exe'
+          Copy-Item README.md, LICENSE, THIRD_PARTY_NOTICES.md dist/
+          Copy-Item licenses dist/licenses -Recurse
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MaplePad-VMU-Manager-windows-x64
+          path: dist/

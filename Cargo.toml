@@ -1,0 +1,28 @@
+[package]
+name = "maplepad-vmu-manager"
+version = "0.2.0"
+edition = "2021"
+description = "Windows VMU dump and restore utility for MaplePad"
+license = "MIT"
+rust-version = "1.98"
+publish = false
+
+[dependencies]
+eframe = { version = "=0.29.1", default-features = false, features = ["default_fonts", "glow"] }
+rfd = "=0.15.4"
+encoding_rs = "0.8"
+raw-window-handle = "0.6"
+tempfile = "3"
+image = { version = "0.25", default-features = false, features = ["png", "gif", "jpeg", "bmp"] }
+rodio = { version = "0.21.1", default-features = false, features = ["playback", "vorbis"] }
+flate2 = { version = "1.1", default-features = false, features = ["rust_backend"] }
+
+[build-dependencies]
+winresource = "0.1"
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+strip = true
+
